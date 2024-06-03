@@ -1,0 +1,16 @@
+# Dockerfile.streamlit
+FROM python:3.9-slim
+
+# Installer les dépendances
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+# Copier le code de l'application
+COPY . /app
+WORKDIR /app
+
+# Exposer le port utilisé par Streamlit
+EXPOSE 8501
+
+# Lancer l'application Streamlit
+ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port", "8501"]
