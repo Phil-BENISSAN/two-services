@@ -13,4 +13,4 @@ WORKDIR /app
 EXPOSE 8501
 
 # Lancer l'application Streamlit
-ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port", "8501"]
+ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.enableCORS=false"]
